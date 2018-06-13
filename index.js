@@ -3,7 +3,7 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
-const tg = new Telegram.Telegram('')
+const tg = new Telegram.Telegram(process.env.TELEGRAM_TOKEN)
 
 const querystring = require('querystring');
 const http = require('http');
