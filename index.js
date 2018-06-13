@@ -57,7 +57,7 @@ class PingController extends TelegramBaseController {
                   
                   var res = html('tr').find('a').slice(1,2).html()
                   console.log('Response: ' + res);
-                  scope.sendMessage(res, {parse_mode: 'HTML'})
+                  scope.sendMessage('test', {parse_mode: 'HTML'})
               });
           });
 
