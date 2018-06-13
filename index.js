@@ -4,6 +4,7 @@ const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
 const tg = new Telegram.Telegram(process.env.TELEGRAM_TOKEN)
+  //process.env.TELEGRAM_TOKEN)
 
 const querystring = require('querystring');
 const http = require('http');
@@ -54,10 +55,22 @@ class PingController extends TelegramBaseController {
               res.on('data', function (chunk) {
                   
                   var html = cheerio.load(chunk)
+
+                  html('tr').each(function(i, elem) {
+                    if(i>0){
+                      var links = html(this).find('a')
+                      var torrentLink = (links.get(0))?links.get(0).attribs.href:undefined;
+                      var magnetLink = (links.get(1))?links.get(1).attribs.href:undefined;
+                      var text = (links.get(3))?links.get(3).children[0].data:undefined;
+                      console.log(text)
+                      console.log(magnetLink)
+                      console.log(torrentLink)
+                      scope.sendMessage('<a href="'+torrentLink+'">'+text+'</a>', {parse_mode: 'HTML'})
+                    }
+                  });
+
+                  //console.log(allTr);
                   
-                  var res = html('tr').find('a').html()
-                  console.log('Response: ' + res);
-                  scope.sendMessage('test', {parse_mode: 'HTML'})
               });
           });
 
