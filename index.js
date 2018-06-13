@@ -52,9 +52,12 @@ class PingController extends TelegramBaseController {
           var post_req = http.request(post_options, function(res) {
               res.setEncoding('utf8');
               res.on('data', function (chunk) {
-                  console.log('Response: ' + chunk);
-                  var html = cheerio.load(chunk);
-                  scope.sendMessage(html('tr').find('a').slice(1,2).html() , {parse_mode: 'HTML'})
+                  
+                  var html = cheerio.load(chunk)
+                  
+                  var res = html('tr').find('a').slice(1,2).html()
+                  console.log('Response: ' + res);
+                  scope.sendMessage(res, {parse_mode: 'HTML'})
               });
           });
 
