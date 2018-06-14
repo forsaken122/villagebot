@@ -3,7 +3,12 @@
 const Telegram = require('telegram-node-bot')
 const TelegramBaseController = Telegram.TelegramBaseController
 const TextCommand = Telegram.TextCommand
-const tg = new Telegram.Telegram(process.env.TELEGRAM_TOKEN)
+const tg = new Telegram.Telegram(process.env.TELEGRAM_TOKEN, {
+    webhook: {
+      "url": "https://villagetorrentbot.herokuapp.com",
+      "port": 3000,
+      "host": "localhost"
+    })
   //process.env.TELEGRAM_TOKEN)
 
 const querystring = require('querystring');
