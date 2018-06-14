@@ -8,7 +8,7 @@ const port = process.env.PORT || 443,
     externalUrl = process.env.CUSTOM_ENV_VARIABLE || 'https://villagetorrentbot.herokuapp.com',
     token = process.env.TOKEN
 const tg = new Telegram.Telegram(process.env.TELEGRAM_TOKEN, { webHook: { port : port, host : host } });
-tg.setWebHook(externalUrl + ':443/bot' + token);
+//tg.setWebHook(externalUrl + ':443/bot' + token);
   //process.env.TELEGRAM_TOKEN)
 
 const querystring = require('querystring');
