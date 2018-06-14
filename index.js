@@ -5,7 +5,7 @@ const fs = require('fs');
 const cheerio = require('cheerio')
 const Telegraf = require('telegraf')
 
-const bot = new Telegraf(process.env.BOT_TOKEN)//)
+const bot = new Telegraf(process.env.TELEGRAM_TOKEN)//)
 
 function postCode(codestring, scope) {
           
@@ -43,7 +43,7 @@ function postCode(codestring, scope) {
                       console.log(magnetLink)
                       console.log(torrentLink)
                       //scope.sendMessage('<a href="'+torrentLink+'">'+text+'</a>', {parse_mode: 'HTML'})
-                      scope.reply('<a href="'+torrentLink+'">'+text+'</a>')
+                      scope.replyWithHTML('<a href="'+torrentLink+'">'+text+'</a>')
                     }
                   });
 

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "micro-bot",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +14,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.3",
+    "micro-bot": "^2.2.4",
     "telegraf": "^3.21.2",
     "telegram-node-bot": "^4.0.5"
   }
