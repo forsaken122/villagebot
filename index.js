@@ -11,6 +11,9 @@ const http = require('http');
 const fs = require('fs');
 const cheerio = require('cheerio')
 
+const express = require('express');
+const expressApp = express();
+const PORT = process.env.PORT || 3000;
 
 class PingController extends TelegramBaseController {
     /**
@@ -86,3 +89,10 @@ tg.router
         new TextCommand('ping', 'pingCommand'),
         new PingController()
     )
+
+expressApp.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+expressApp.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
