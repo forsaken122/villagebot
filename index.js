@@ -8,7 +8,8 @@ const tg = new Telegram.Telegram(process.env.TELEGRAM_TOKEN, {
       "url": "https://villagetorrentbot.herokuapp.com",
       "port": 3000,
       "host": "localhost"
-    })
+    }
+  })
   //process.env.TELEGRAM_TOKEN)
 
 const querystring = require('querystring');
